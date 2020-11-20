@@ -1,0 +1,58 @@
+﻿@page 
+@model E_Book_Trading_Platform.Pages.Shared.MainModel
+@{
+    ViewData["Title"] = "Main";
+}
+
+
+<div id="page_main" style=" background: #ECD482">
+    <div class="row">
+        <div class="col-md-2">
+            <div id="main_type">
+                <div class="panel panel-warning">
+                    <div class="text-center" style="color: #8a6d3b; background-color: #fcf8e3; border-color: #faebcc;">
+                        <i style="color:gray"></i>图书分类
+                    </div>
+                    <div class="panel-body">
+                        <div class="list-group">
+                            <div class="list-group">
+                                <a href="#" class='list-group-item'>
+                                    <i style="color:gray">小说</i>
+                                </a>
+                                <a href="#" class='list-group-item'>
+                                    <i style="color:gray">文艺</i>
+                                </a>
+                                <a href="#" class='list-group-item'>
+                                    <i style="color:gray">历史</i>
+                                </a>
+                                <a href="#" class='list-group-item'>
+                                    <i style="color:gray">经济</i>
+                                </a>
+                                <a href="#" class='list-group-item'>
+                                    <i style="color:gray">科学</i>
+                                </a>
+                            </div>
+                        </div>
+                        <a href="#" class="btn btn-block" id="btn-default">全部分类</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-10">
+            <div style="margin:10px;">
+                <h2 class="text-success">图书汇总</h2>
+                @foreach (var item in Model.Book)
+                {
+                    <div class='book'>
+                        <a href='./BookDetial.aspx?id={0}'>
+                            <img src="@item.Image" alt="图片尚未加载" />
+                            <h4 class='title' alt="@item.Name">@item.Name</h4>
+                            <small class='text-info' alt='@item.Author'>@item.Author </small>
+                            <p class='text-danger'>￥@item.Price</p>
+                        </a>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</div>
